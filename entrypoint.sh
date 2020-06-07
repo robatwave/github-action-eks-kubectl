@@ -6,4 +6,4 @@ arg=$1
 files=( "${@:2}" )
 
 echo "arguments: $arg ${files[*]}"
-kubectl $1 ${files[*]}
+kubectl rollout restart deployment jt
