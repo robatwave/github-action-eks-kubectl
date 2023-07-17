@@ -20,8 +20,7 @@ RUN apk add --update --no-cache --virtual .build-deps curl openssl \
     && apk del .build-deps \
     && apk add bash
 
-RUN pip3 install awscliv2
+RUN pip3 install awscliv2 
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
-
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
