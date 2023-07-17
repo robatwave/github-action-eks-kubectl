@@ -1,4 +1,4 @@
-FROM python:3.7-alpine
+FROM python:3.12.0b3-alpine
 
 LABEL "com.github.actions.name"="kubectl-eks-cmd"
 LABEL "com.github.actions.description"="kubectl for EKS"
@@ -20,7 +20,7 @@ RUN apk add --update --no-cache --virtual .build-deps curl openssl \
     && apk del .build-deps \
     && apk add bash
 
-RUN pip3 install --upgrade awscli
+RUN pip3 install awscliv2
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
